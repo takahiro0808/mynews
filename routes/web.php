@@ -28,3 +28,9 @@ admin/profile/edit にアクセスしたら ProfileController の edit Action �
 */
 Route::get('admin/profile/create', 'Admin\ProfileController@add');
 Route::get('admin/profile/edit', 'Admin\ProfileController@edit');
+
+//追記：上記応用をグループ化しました。
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('profile/create', 'Admin\ProfileController@add');
+    Route::get('profile/edit', 'Admin\ProfileController@edit');
+});
